@@ -14,7 +14,7 @@ public class PayBillsPage extends BasePage{
     public WebElement payee;
 
     @FindBy(css = "[id='sp_account']")
-    public WebElement account;
+    public WebElement accountPSP;
 
     @FindBy(css ="[id='sp_amount'][name='amount']")
     public WebElement amount;
@@ -24,6 +24,16 @@ public class PayBillsPage extends BasePage{
 
     @FindBy(css = "[name='description']")
     public WebElement description;
+
+    @FindBy(css = "#np_new_payee_name")
+    public WebElement payeeName;
+    @FindBy(css = "#np_new_payee_address")
+    public WebElement payeeAddress;
+    @FindBy(css = "#np_new_payee_account")
+    public WebElement account;
+    @FindBy(css = "#np_new_payee_details")
+    public WebElement payeeDetails;
+
 
 public void selectPayee(String selectPayee){
     Select payeeDropdown= new Select(payee);

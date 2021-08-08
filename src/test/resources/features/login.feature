@@ -9,7 +9,7 @@ Feature: Users should be able to login
     Scenario: Login as a customer
       When the user enters customer information
       Then the user should be login
-  @wip
+
   Scenario: Login as a customer
     When the user enters customer information
     And navigate to module "Pay Bills"
