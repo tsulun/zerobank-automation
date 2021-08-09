@@ -50,16 +50,7 @@ public class FindTransactionsStepDefs {
         for (int i = 1; i <= sizeOfRows; i++) {
             Date dates = format.parse(findTransactionsPage.datesFromTo(i).getText());
             //dateTT.after(dates) the same as dateTT > dates and dateFF.before(dates) same as dateFF < dates
-            if(dateTT.after(dates) && dateFF.before(dates)){
-                Assert.assertTrue(true);
-            }else if(dateTT.equals(dates)){
-                Assert.assertTrue(true);
-            }else if(dateFF.equals(dates)){
-                Assert.assertTrue(true);
-            }else{
-                Assert.assertTrue(false);
-                break;
-            }
+            Assert.assertTrue(dateTT.after(dates) && dateFF.before(dates) || dateTT.equals(dates) || dateFF.equals(dates) );
 
         }
 
@@ -73,12 +64,8 @@ public class FindTransactionsStepDefs {
         for (int i = 1; i < sizeOfRows; i++) {
             Date date1 = format.parse(findTransactionsPage.datesFromTo(i).getText());
             Date date2 = format.parse(findTransactionsPage.datesFromTo(i+1).getText());
-            if(date1.after(date2)){
-                Assert.assertTrue(true);
-            }else{
-                Assert.assertTrue(false);
-                break;
-            }
+            Assert.assertTrue(date1.after(date2));
+
         }
     }
 
@@ -88,12 +75,7 @@ public class FindTransactionsStepDefs {
         Date date1 = format.parse(date11);
         for (int i = 1; i <= sizeOfRows; i++) {
             Date date2 = format.parse(findTransactionsPage.datesFromTo(i).getText());
-            if(!date1.equals(date2)){
-                Assert.assertTrue(true);
-            }else{
-                Assert.assertTrue(false);
-                break;
-            }
+            Assert.assertNotEquals(date1, date2);
         }
     }
 

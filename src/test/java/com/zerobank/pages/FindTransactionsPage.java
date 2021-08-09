@@ -9,11 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class FindTransactionsPage {
-
-    public FindTransactionsPage(){
-        PageFactory.initElements(Driver.get(),this);
-    }
+public class FindTransactionsPage extends BasePage{
 
 
     @FindBy(xpath = "//a[contains(text(),'Find Transactions')]")
