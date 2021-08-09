@@ -7,7 +7,8 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 
 public class PayBillsPage extends BasePage{
-    @FindBy(css = "[href='#ui-tabs-2']")
+
+    @FindBy(xpath= "//*[text()='Add New Payee']")
     public WebElement addNewPayee;
 
     @FindBy(css="[id='sp_payee'[id='sp_payee']")
@@ -33,6 +34,12 @@ public class PayBillsPage extends BasePage{
     public WebElement account;
     @FindBy(css = "#np_new_payee_details")
     public WebElement payeeDetails;
+
+    @FindBy(css = "#add_new_payee")
+    public WebElement add;
+
+    @FindBy (xpath = "//*[contains(text(),'was successfully created')]")
+    public WebElement succesfulMessage;
 
 
 public void selectPayee(String selectPayee){

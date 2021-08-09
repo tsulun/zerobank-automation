@@ -17,7 +17,7 @@ public class LoginStepDefs {
        String url = ConfigurationReader.get("url");
         Driver.get().get(url);
         FirstPage firstPage = new FirstPage();
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(1);
         firstPage.signIn.click();
 
     }
@@ -33,7 +33,6 @@ public class LoginStepDefs {
 
     @Then("the user should be login")
     public void the_user_should_be_login() {
-        BrowserUtils.waitFor(3);
         String actualTitle = Driver.get().getTitle();
         Assert.assertEquals("verification to log in succesfully","Zero - Account Summary",actualTitle);
     }
@@ -42,8 +41,6 @@ public class LoginStepDefs {
     @When("navigate to module {string}")
     public void navigate_to_module(String string) {
         BasePage basePage = new BasePage();
-        BrowserUtils.waitFor(3);
         basePage.navigateToModule(string);
-        BrowserUtils.waitFor(5);
     }
 }
