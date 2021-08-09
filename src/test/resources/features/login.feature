@@ -3,7 +3,7 @@ Feature: Users should be able to login
 
   Background:
 
-    Given the user navigates to login page
+    Given the user is logged in
 
 
     Scenario: Login as a customer

@@ -2,10 +2,10 @@
 Feature: Add new payee under pay bills
 
   Background:
-    Given the user navigates to login page
+    Given the user is logged in
     When the user enters customer information
     Then the user should be login
-    And navigate to module "Pay Bills"
+    And the user clicks on Savings link on the "Pay Bills" page
 
   @wip
   Scenario: Add a new payee
