@@ -6,14 +6,15 @@ import com.zerobank.pages.LoginPage;
 import com.zerobank.utilities.BrowserUtils;
 import com.zerobank.utilities.ConfigurationReader;
 import com.zerobank.utilities.Driver;
+import com.zerobank.utilities.StringUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class LoginStepDefs {
-    @Given("the user navigates to login page")
-    public void the_user_navigates_to_login_page() {
+    @Given("the user is logged in")
+    public void the_user_is_logged_in() {
        String url = ConfigurationReader.get("url");
         Driver.get().get(url);
         FirstPage firstPage = new FirstPage();
@@ -38,9 +39,9 @@ public class LoginStepDefs {
     }
 
 
-    @When("navigate to module {string}")
-    public void navigate_to_module(String string) {
+    @When("the user clicks on Savings link on the {string} page")
+    public void the_user_clicks_on_Savings_link_on_the(String string) {
         BasePage basePage = new BasePage();
-        basePage.navigateToModule(string);
+        basePage.navigateToModule(new StringUtils().capitalizeWord(string));
     }
 }
