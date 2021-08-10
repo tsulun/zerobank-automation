@@ -7,7 +7,7 @@ Feature: Add new payee under pay bills
     Then the user should be login
     And the user clicks on Savings link on the "Pay Bills" page
 
-  @wip
+
   Scenario: Add a new payee
     Given Add New Payeetab
     And creates new payee using following information
