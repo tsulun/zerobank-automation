@@ -36,6 +36,7 @@ public class FindTransactionsStepDefs {
         //because it is over laping with the previous dates after search button is clicked , the fields are cleared.
         findTransactionsPage.fromDate.clear();
         findTransactionsPage.toDate.clear();
+        findTransactionsPage.descritptionField.clear();
 
     }
 
@@ -78,5 +79,40 @@ public class FindTransactionsStepDefs {
             Assert.assertNotEquals(date1, date2);
         }
     }
+
+    //the user enters description "ONLINE"
+    //When the user enters description "OFFICE"
+    @When("the user enters description {string}")
+    public void the_user_enters_description(String str) {
+        findTransactionsPage.descritptionField.sendKeys(str);
+    }
+
+    //Then results table should only show descriptions that containing "ONLINE"
+    //Then results table should only show descriptions that containing "OFFICE"
+    @Then("results table should only show descriptions that containing {string}")
+    public void results_table_should_only_show_descriptions_that_containing(String str) {
+        int sizeOfRows2 = findTransactionsPage.secondColumn.size();
+        for (int i = 1; i <= sizeOfRows2; i++) {
+
+                //fetch the text from the rows
+                String textContainingStr = findTransactionsPage.resultContains(i).getText();
+                Assert.assertTrue(textContainingStr.contains(str));
+
+        }
+    }
+
+    //But results table should not show descriptions containing "OFFICE"
+    @Then("results table should not show descriptions containing {string}")
+    public void results_table_should_not_show_descriptions_containing(String str) {
+        int sizeOfRows2 = findTransactionsPage.secondColumn.size();
+        the_user_enters_description(str);
+        for (int i = 1; i <= sizeOfRows2; i++) {
+            //fetch the text from the rows
+            String textContainingStr = findTransactionsPage.resultContains(i).getText();
+            //asserting that the text is not contained is false , (it is show the text on the table)=> False + ! = true
+            Assert.assertFalse(!textContainingStr.contains(str));
+        }
+    }
+
 
 }
