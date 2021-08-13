@@ -1,4 +1,4 @@
-
+  @seda
   Feature: Find Transactions in Account Activity
 
     Background:
@@ -6,7 +6,7 @@
       And the user enters customer information
       And the user navigates "account-activity" page
       And the user clicks on "Find Transactions"
-    @seda
+
     Scenario Outline: Search date range
       When the user enters date range from "<startDate>" to "<endDate>"
       And the user clicks on "search"

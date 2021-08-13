@@ -1,5 +1,6 @@
 package com.zerobank.pages;
 
+import com.zerobank.utilities.BrowserUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -31,10 +32,10 @@ public class FindTransactionsPage extends BasePage{
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement searchBtn;
 
-    @FindBy(xpath = "//div[@id='all_transactions_for_account']//td[1]")
+    @FindBy(xpath = "(//table)[2]//td[1]")
     public List<WebElement> ResultTableDates;
 
-    @FindBy(xpath = "//div[@id='all_transactions_for_account']//td[2]")
+    @FindBy(xpath = "(//table)[2]//td[2]")
     public List<WebElement> ResultTableDescriptions;
 
     @FindBy(xpath = "//div[@id='all_transactions_for_account']//td[3]")
@@ -43,5 +44,15 @@ public class FindTransactionsPage extends BasePage{
     @FindBy(xpath = "//div[@id='all_transactions_for_account']//td[4]")
     public List<WebElement> ResultTableWithdrawals;
 
+    @FindBy(xpath = "(//table)[2]")
+    public WebElement table2;
+
+    public List<String> DateListStr(){
+        return BrowserUtils.getElementsText(ResultTableDates);
+    }
+
+    public List<String> DescriptionListStr(){
+        return BrowserUtils.getElementsText(ResultTableDescriptions);
+    }
 
 }
