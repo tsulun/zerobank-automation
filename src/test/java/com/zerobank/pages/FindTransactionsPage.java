@@ -1,64 +1,47 @@
 package com.zerobank.pages;
 
-import com.zerobank.utilities.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
 public class FindTransactionsPage extends BasePage{
 
-
     @FindBy(xpath = "//a[contains(text(),'Find Transactions')]")
-    public WebElement findTransctionTab;
+    public WebElement findTransactionsTab;
 
-    @FindBy(xpath = "//input[@id='aa_fromDate']")
-    public WebElement fromDate;
+    @FindBy(id = "aa_description")
+    public WebElement description;
 
-    @FindBy(xpath = "//input[@id='aa_toDate']")
-    public WebElement toDate;
+    @FindBy(id = "aa_fromDate")
+    public WebElement datesFrom;
+
+    @FindBy(id = "aa_toDate")
+    public WebElement datesTo;
+
+    @FindBy(id="aa_fromAmount")
+    public WebElement amountsFrom;
+
+    @FindBy(id = "aa_toAmount")
+    public WebElement amountsTo;
+
+    @FindBy(id="aa_type")
+    public WebElement type;
 
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement searchBtn;
 
-    @FindBy(id = "aa_description")
-    public WebElement descritptionField;
+    @FindBy(xpath = "//div[@id='all_transactions_for_account']//td[1]")
+    public List<WebElement> ResultTableDates;
 
-    @FindBy(xpath = "//div[@id='filtered_transactions_for_account']//tbody/tr/td[1]")
-    public List<WebElement> firstColumn;
+    @FindBy(xpath = "//div[@id='all_transactions_for_account']//td[2]")
+    public List<WebElement> ResultTableDescriptions;
 
-    @FindBy(xpath = "//div[@id='filtered_transactions_for_account']//tbody/tr/td[1]")
-    public List<WebElement> secondColumn;
+    @FindBy(xpath = "//div[@id='all_transactions_for_account']//td[3]")
+    public List<WebElement> ResultTableDeposits;
 
-    public WebElement datesFromTo(int i){
-        return Driver.get().findElement(By.xpath("//div[@id='filtered_transactions_for_account']//tbody/tr[" + i + "]/td[1]"));
-    }
-
-    public WebElement resultContains(int i){
-        return Driver.get().findElement(By.xpath("//div[@id='filtered_transactions_for_account']//tbody/tr["+i+"]/td[2]"));
-    }
-
-    public WebElement resultDeposit(int i){
-        return Driver.get().findElement(By.xpath("//div[@id='filtered_transactions_for_account']//tbody/tr["+i+"]/td[3]"));
-    }
-
-    public WebElement resultWithdrawal(int i){
-        return Driver.get().findElement(By.xpath("//div[@id='filtered_transactions_for_account']//tbody/tr["+i+"]/td[4]"));
-    }
+    @FindBy(xpath = "//div[@id='all_transactions_for_account']//td[4]")
+    public List<WebElement> ResultTableWithdrawals;
 
 
-
-    @FindBy(xpath = "//div[contains(text(),'No results')]")
-    public WebElement noResults;
-
-    @FindBy(xpath = "//select[@id='aa_type']")
-    public WebElement typeOptions;
-
-    public Select typeOptionsList(){
-
-        return new Select(typeOptions);
-    }
 }
