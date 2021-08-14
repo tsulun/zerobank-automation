@@ -44,4 +44,30 @@ public class LoginStepDefs {
         BasePage basePage = new BasePage();
         basePage.navigateToModule(new StringUtils().capitalizeWord(string));
     }
+
+    @When("user logs in with valid credentials")
+    public void user_logs_in_with_valid_credentials() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("{string} page should be displayed")
+    public void page_should_be_displayed(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @When("user logs in with invalid credentials")
+    public void user_logs_in_with_invalid_credentials() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("error message should be displayed")
+    public void error_message_should_be_displayed() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+
 }
