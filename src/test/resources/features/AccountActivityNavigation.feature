@@ -36,9 +36,31 @@ Feature: Navigating to specific accounts in Accounts Activity
     And Account drop down should have "<Selected AcDrDo>" selected
 
     Examples:
-      |link       | Selected AcDrDo |
-      |Savings    | Savings         |
-      |Brokerage  | Brokerage       |
-      |Checking   | Checking        |
-      |Credit card| Credit card     |
-      |Loan       | Loan            |
+      | link        | Selected AcDrDo |
+      | Savings     | Savings         |
+      | Brokerage   | Brokerage       |
+      | Checking    | Checking        |
+      | Credit card | Credit card     |
+      | Loan        | Loan            |
+
+#  Account Activity page should have the title Zero –Account activity.
+#  In the Account drop down default option should be Savings.
+#  Account drop down should have the following options: Savings, Checking, Loan, Credit Card, Brokerage.
+#  Transactions table should have column names Date, Description, Deposit, Withdrawal.
+  @wip
+  Scenario: Checking Account Activity page elements
+    When The user navigates to "Account Activity" module
+    Then "Account Activity" page should have the title "Zero - Account activity"
+    And In the Account drop down default option should be "Savings"
+    And Account drop down should have the following options
+      | Savings     |
+      | Checking    |
+      | Loan        |
+      | Credit Card |
+      | Brokerage   |
+    And Transactions table should have following column names
+      | Date        |
+      | Description |
+      | Deposit     |
+      | Withdrawal  |
+
