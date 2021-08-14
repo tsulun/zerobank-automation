@@ -30,7 +30,7 @@ public class FindTransactionsPage extends BasePage{
     @FindBy(xpath = "//div[@id='filtered_transactions_for_account']//tbody/tr/td[1]")
     public List<WebElement> firstColumn;
 
-    @FindBy(xpath = "//div[@id='filtered_transactions_for_account']//tbody/tr/td[1]")
+    @FindBy(xpath = "//div[@id='filtered_transactions_for_account']//tbody/tr/td[2]")
     public List<WebElement> secondColumn;
 
     public WebElement datesFromTo(int i){
