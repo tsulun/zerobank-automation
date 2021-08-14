@@ -27,7 +27,25 @@ public void navigateToModule(String Tab){
     }
 }
 
+    //I added because I need to navigate to the tab as well
+    public void navigateToModules(String tab, String module) {
+        try {
+            BrowserUtils.waitForClickablility(By.linkText(tab), 5);
+            WebElement tabElement = Driver.get().findElement(By.linkText(tab));
+            tabElement.click();
+        } catch (Exception e) {
+            BrowserUtils.clickWithWait(By.linkText(tab), 5);
+        }
+
+        try {
+            BrowserUtils.waitForClickablility(By.linkText(module), 5);
+            WebElement tabElement = Driver.get().findElement(By.linkText(module));
+            tabElement.click();
+        } catch (Exception e) {
+            BrowserUtils.clickWithWait(By.linkText(module), 5);
+        }
 
 
+    }
 
 }

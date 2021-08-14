@@ -1,4 +1,9 @@
 Feature: Purchase Foreign Currency
+
+  Background:
+    Given the user is logged in
+    When the user enters customer information
+
   @wip
   Scenario: Available currencies
     Given the user accesses the Purchase foreign currency cash tab
