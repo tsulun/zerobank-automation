@@ -27,7 +27,18 @@ public void navigateToModule(String Tab){
     }
 }
 
+    public void navigateToMdl(String Tab){
 
+        String tabLocator = "//a[@href=\"/bank/redirect.html?url="+Tab+".html\"]";
+
+        try {
+            BrowserUtils.waitForClickablility(By.xpath(tabLocator), 5);
+            WebElement tabElement = Driver.get().findElement(By.xpath(tabLocator));
+            tabElement.click();
+        }catch (Exception e) {
+            BrowserUtils.clickWithWait(By.xpath(tabLocator), 5);
+        }
+    }
 
 
 }
