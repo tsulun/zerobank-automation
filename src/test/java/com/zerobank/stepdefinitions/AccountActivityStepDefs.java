@@ -62,7 +62,10 @@ public class AccountActivityStepDefs {
     @Then("Transactions table should have following column names")
     public void transactions_table_should_have_following_column_names(List<String> expected) {
         Assert.assertTrue(accountActivity.similarityOfTwoList(BrowserUtils.getElementsText(accountActivity.tableHeadColumns), expected));
-
+        //we can also use assertEquals in there but in case of tehre is a certain situation like only these options
+        //should be available etc.
+        //if the meaning of step definations is should contains following options, things getting challenging
+        //so for that i create a method which is compare items of two list
     }
 
 
