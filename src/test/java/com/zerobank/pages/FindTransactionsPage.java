@@ -50,7 +50,6 @@ public class FindTransactionsPage extends BasePage{
     }
 
 
-
     @FindBy(xpath = "//div[contains(text(),'No results')]")
     public WebElement noResults;
 
@@ -58,7 +57,22 @@ public class FindTransactionsPage extends BasePage{
     public WebElement typeOptions;
 
     public Select typeOptionsList(){
-
         return new Select(typeOptions);
     }
+
+    public void enteringDateRangeMethod(String from, String to){
+        fromDate.sendKeys(from);
+        toDate.sendKeys(to);
+    }
+
+    public void clearFromDateField(){
+        fromDate.clear();
+    }
+    public void clearToDateField(){
+        toDate.clear();
+    }
+    public void clearDescriptionField(){
+        descritptionField.clear();
+    }
+
 }

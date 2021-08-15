@@ -26,8 +26,7 @@ public class FindTransactionsStepDefs {
 
     @When("the user enters date range from {string} to {string}")
     public void the_user_enters_date_range_from_to(String dateF, String dateT) {
-        findTransactionsPage.fromDate.sendKeys(dateF);
-        findTransactionsPage.toDate.sendKeys(dateT);
+        findTransactionsPage.enteringDateRangeMethod(dateF,dateT);
     }
 
     @When("clicks search")
@@ -35,9 +34,9 @@ public class FindTransactionsStepDefs {
         findTransactionsPage.searchBtn.click();
         BrowserUtils.waitFor(1);
         //because it is over laping with the previous dates after search button is clicked , the fields are cleared.
-        findTransactionsPage.fromDate.clear();
-        findTransactionsPage.toDate.clear();
-        findTransactionsPage.descritptionField.clear();
+        findTransactionsPage.clearFromDateField();
+        findTransactionsPage.clearToDateField();
+        findTransactionsPage.clearDescriptionField();
 
     }
 
@@ -48,7 +47,6 @@ public class FindTransactionsStepDefs {
         Date dateTT = format.parse(dateT);
         //finding the number of rows
         int sizeOfRows = findTransactionsPage.firstColumn.size();
-        boolean fa = false;
         for (int i = 1; i <= sizeOfRows; i++) {
             Date dates = format.parse(findTransactionsPage.datesFromTo(i).getText());
             //dateTT.after(dates) the same as dateTT > dates and dateFF.before(dates) same as dateFF < dates
