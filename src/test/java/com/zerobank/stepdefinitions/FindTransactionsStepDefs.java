@@ -62,18 +62,19 @@ public class FindTransactionsStepDefs {
         int sizeOfRows = findTransactionsPage.firstColumn.size();
         // "<sizeOfRows because  datesFromTo(i+1) is i+1 the last one already taken
         for (int i = 1; i < sizeOfRows; i++) {
-            Date date1 = format.parse(findTransactionsPage.datesFromTo(i).getText());
-            Date date2 = format.parse(findTransactionsPage.datesFromTo(i+1).getText());
-            Assert.assertTrue(date1.after(date2));
+            Date date1 = format.parse(findTransactionsPage.datesFromTo(i).getText()); //first value from the list
+            Date date2 = format.parse(findTransactionsPage.datesFromTo(i+1).getText()); //second value from the list
+            Assert.assertTrue(date1.after(date2)); //check the most recent date is above the later date
 
         }
     }
 
     @Then("the results table should only not contain transactions dated {string}")
     public void the_results_table_should_only_not_contain_transactions_dated(String date11) throws ParseException {
-        int sizeOfRows = findTransactionsPage.firstColumn.size();
+        int sizeOfRows = findTransactionsPage.firstColumn.size(); //number of rows
         Date date1 = format.parse(date11);
         for (int i = 1; i <= sizeOfRows; i++) {
+            //check for each the dates that the given date is not equal to the number rows dates.
             Date date2 = format.parse(findTransactionsPage.datesFromTo(i).getText());
             Assert.assertNotEquals(date1, date2);
         }
@@ -90,7 +91,7 @@ public class FindTransactionsStepDefs {
     //Then results table should only show descriptions that containing "OFFICE"
     @Then("results table should only show descriptions that containing {string}")
     public void results_table_should_only_show_descriptions_that_containing(String str) {
-        int sizeOfRows2 = findTransactionsPage.secondColumn.size();
+        int sizeOfRows2 = findTransactionsPage.secondColumn.size(); //number of rows
         if(sizeOfRows2>0) {
             for (int i = 1; i <= sizeOfRows2; i++) {
                 //fetch the text from the rows
