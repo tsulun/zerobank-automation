@@ -24,12 +24,14 @@ public class LoginStepDefs {
     }
 
     @When("the user enters customer information")
-    public void the_user_enters_customer_information() {
+    public void the_user_enters_customer_information() throws InterruptedException {
         LoginPage loginPage = new LoginPage();
         loginPage.loginAsCustomer();
-        //BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(2);
         loginPage.advance.click();
+        BrowserUtils.waitFor(2);
         loginPage.clickToCont.click();
+        BrowserUtils.waitFor(2);
     }
 
     @Then("the user should be login")
@@ -59,15 +61,29 @@ public class LoginStepDefs {
 
     @When("user logs in with invalid credentials")
     public void user_logs_in_with_invalid_credentials() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        new LoginPage().loginWithWrongCredentials();
     }
 
     @Then("error message should be displayed")
     public void error_message_should_be_displayed() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        Assert.assertTrue(new LoginPage().errorMessageIsDisplayed());
     }
+
+    @Given("the user is at the login page")
+    public void the_user_is_at_the_login_page() {
+        new LoginPage().userAtLoginPage();
+    }
+
+    @When("the user enters valid credentials")
+    public void the_user_enters_valid_credentials() throws InterruptedException {
+        new LoginPage().loginAsCustomer();
+    }
+
+    @When("user logs in with blank credentials")
+    public void user_logs_in_with_blank_credentials() {
+        new LoginPage().loginWithBlankCredentials();
+    }
+
 
 
 }
