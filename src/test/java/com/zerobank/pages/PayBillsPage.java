@@ -11,7 +11,7 @@ public class PayBillsPage extends BasePage{
     @FindBy(xpath= "//*[text()='Add New Payee']")
     public WebElement addNewPayee;
 
-    @FindBy(css="[id='sp_payee'[id='sp_payee']")
+    @FindBy(css="[id='sp_payee']")
     public WebElement payee;
 
     @FindBy(css = "[id='sp_account']")
@@ -42,10 +42,14 @@ public class PayBillsPage extends BasePage{
     public WebElement succesfulMessage;
 
 
-public void selectPayee(String selectPayee){
-    Select payeeDropdown= new Select(payee);
+public void selectPayee(String selectPayee) {
+    Select payeeDropdown = new Select(payee);
     payeeDropdown.selectByVisibleText(selectPayee);
-
 }
+public void happyInputData(){
+    amount.sendKeys("123");
+    description.sendKeys("example");
+    }
+
 
 }

@@ -11,7 +11,7 @@ import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.Map;
 
-public class PayBillsStepDefs {
+public class AddNewPayeeStepDefs {
     @Given("Add New Payeetab")
     public void add_New_Payeetab() {
         PayBillsPage payBillsPage = new PayBillsPage();

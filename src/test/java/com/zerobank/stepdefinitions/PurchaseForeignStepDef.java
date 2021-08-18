@@ -40,8 +40,8 @@ public class PurchaseForeignStepDef {
 
     }
 
-    @Then("error message should be displayed")
-    public void error_message_should_be_displayed() {
+    @Then("error message should be displayed on page")
+    public void error_message_should_be_displayed_on_page() {
         Alert alert = Driver.get().switchTo().alert();
         String alertMessage = Driver.get().switchTo().alert().getText();
 
