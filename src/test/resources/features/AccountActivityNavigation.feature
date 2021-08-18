@@ -4,7 +4,7 @@ Feature: Navigating to specific accounts in Accounts Activity
   Background:
     Given the user is logged in
     When the user enters customer information
-#
+
 #  Scenario: Savings account redirect
 #    When the user clicks on "Savings" link on the Account Summary page
 #    Then the "Account Activity" page should be displayed
@@ -29,7 +29,7 @@ Feature: Navigating to specific accounts in Accounts Activity
 #    When the user clicks on "Loan" link on the Account Summary page
 #    Then the "Account Activity" page should be displayed
 #    And Account drop down should have "Loan" selected
-#
+
   Scenario Outline: Redirect to different <link> accounts
     When the user clicks on "<link>" link on the Account Summary page
     Then the "Account Activity" page should be displayed
