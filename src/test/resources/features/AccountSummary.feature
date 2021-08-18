@@ -1,8 +1,7 @@
 Feature: Account Summary Page
 
-  Background: Given the user is logged in
-
-  Background: And the user is on the "Account Summary" page
+  Background:
+    Given the user is logged in
 
   @seda
   Scenario: Page title should be correct

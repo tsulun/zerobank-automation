@@ -3,6 +3,7 @@ package com.zerobank.stepdefinitions;
 import com.zerobank.pages.AccountSummary;
 import com.zerobank.pages.LoginPage;
 import com.zerobank.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import sun.rmi.runtime.Log;
@@ -35,5 +36,9 @@ public class AccountSummaryStepDefs {
         //
         // For other transformations you can register a DataTableType.
         throw new io.cucumber.java.PendingException();
+    }
+
+    @And("the user is on the {string} page")
+    public void theUserIsOnThePage(String arg0) {
     }
 }
