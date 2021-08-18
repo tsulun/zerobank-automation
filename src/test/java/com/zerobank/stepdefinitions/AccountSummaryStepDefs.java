@@ -21,6 +21,12 @@ public class AccountSummaryStepDefs {
     public void credit_Accounts_table_must_have_following_columns(List<String> columnNames) {
         Assert.assertEquals(columnNames,new AccountSummary().creditAccountsTableColumns());
     }
+
+
+    //@Then("{string} table must have following columns")
+    //public void credit_accounts_table_must_have_following_columns(String creditAccounts) {
+   //     Assert.assertEquals(columnNames,new AccountSummary().creditAccountsTableColumns());
+   // }
 }
 
 
