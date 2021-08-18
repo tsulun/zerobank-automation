@@ -20,7 +20,7 @@ public class PurchaseForeignStepDef {
     @Given("the user accesses the Purchase foreign currency cash tab")
     public void the_user_accesses_the_Purchase_foreign_currency_cash_tab() {
         BasePage basePage = new BasePage();
-        basePage.navigateToModules("Pay Bills","Purchase Foreign Currency");
+        basePage.navigateToModule("Pay Bills","Purchase Foreign Currency");
 
 
     }
