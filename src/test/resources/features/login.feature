@@ -1,20 +1,21 @@
-@login
+@loginYA
 Feature: Users should be able to login
 
   Background:
 
-    Given the user is logged in
+    Given the user is at the login page
 
 
-    Scenario: Login as a customer
+    Scenario: Only authorised users should be able to login
       When the user enters customer information
-      Then the user should be login
+      Then the page should have "Zero - Account Summary" title
 
-    @seda
-    Scenario: User logs in with valid credentials
-      When user logs in with valid credentials
-      Then "Account Summary" page should be displayed
-    @seda
-    Scenario: User logs in with invalid credentials
-       When user logs in with invalid credentials
+
+    Scenario: Users with wrong username or password
+      When user logs in with invalid credentials
+      Then error message should be displayed
+
+
+    Scenario: Users with blank username or password
+       When user logs in with blank credentials
        Then error message should be displayed

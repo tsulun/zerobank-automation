@@ -2,6 +2,7 @@ package com.zerobank.pages;
 
 import com.zerobank.utilities.ConfigurationReader;
 import com.zerobank.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -26,13 +27,34 @@ public class LoginPage {
     @FindBy(xpath = "//*[text()='Proceed to zero.webappsecurity.com (unsafe)']")
     public WebElement clickToCont;
 
-    public void loginAsCustomer(){
+    @FindBy(xpath = "//div[@class='alert alert-error']")
+    public WebElement errorMessage;
+
+    public void loginAsCustomer() throws InterruptedException {
          String username = ConfigurationReader.get("username");
          String password = ConfigurationReader.get("password");
          loginInput.sendKeys(username);
          passwordInput.sendKeys(password);
          signInButton.click();
+    }
 
+    public void userAtLoginPage(){
+        Driver.get().get("http://zero.webappsecurity.com/login.html");
+    }
 
+    public void loginWithWrongCredentials(){
+        loginInput.sendKeys("Invalid Username");
+        passwordInput.sendKeys("Invalid Password");
+        signInButton.click();
+    }
+
+    public void loginWithBlankCredentials(){
+        loginInput.sendKeys("");
+        passwordInput.sendKeys("");
+        signInButton.click();
+    }
+
+    public boolean errorMessageIsDisplayed(){
+        return new LoginPage().errorMessage.isDisplayed();
     }
 }

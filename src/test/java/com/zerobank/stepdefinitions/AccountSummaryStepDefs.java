@@ -1,12 +1,16 @@
 package com.zerobank.stepdefinitions;
 
+import com.zerobank.pages.AccountSummary;
+import com.zerobank.pages.LoginPage;
+import com.zerobank.utilities.Driver;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
+import sun.rmi.runtime.Log;
 
 public class AccountSummaryStepDefs {
     @Then("the page should have {string} title")
-    public void the_page_should_have_title(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void the_page_should_have_title(String AccountSummary) {
+      Assert.assertEquals(AccountSummary,Driver.get().getTitle());
     }
 
     @Then("the page should have following account types")
